@@ -17,12 +17,12 @@
         <li>Converts variables inside <code>&lt;...&gt;</code> into Java identifiers</li>
         <li>Automatically concatenates text and variable segments</li>
         <li>Removes invalid placeholders (e.g. with spaces)</li>
-        <li>Works in all file types via postfix <code>.artemis</code></li>
+        <li>Works in .java files via postfix <code>.artemis</code></li>
     </ul>
 
     <h3>Example</h3>
     <pre>
-"(&lt;X&gt;/&lt;Y&gt;)⎵Enter⎵your⎵guess:".artemis"
+"(&lt;X&gt;/&lt;Y&gt;)⎵Enter⎵your⎵guess:".artemis
 -->
 "(" + X + "/" + Y + ") Enter your guess:"
     </pre>
@@ -34,7 +34,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <codeInsight.template.postfixTemplateProvider
                 implementationClass="dev.flocki.artemis_string_normalizer.postfix.ArtemisStringNormalizerTemplateProvider"
-                language=""
+                language="JAVA"
         />
 
     </extensions>
