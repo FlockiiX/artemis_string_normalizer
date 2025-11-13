@@ -1,0 +1,1 @@
+rootProject.name = "artemis_string_normalizer"
