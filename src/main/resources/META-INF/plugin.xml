@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>dev.flocki.artemis_string_normalizer</id>
-    <name>Artemis_string_normalizer</name>
+    <name>Artemis String Normalizer</name>
     <vendor url="https://github.com/FlockiiX">FlockiiX</vendor>
     <description><![CDATA[
     <h2>Artemis String Normalizer</h2>
@@ -22,7 +22,7 @@
 
     <h3>Example</h3>
     <pre>
-"(<X>/<Y>)⎵Enter⎵your⎵guess:".artemis
+"(&lt;X&gt;/&lt;Y&gt;)⎵Enter⎵your⎵guess:".artemis"
 -->
 "(" + X + "/" + Y + ") Enter your guess:"
     </pre>
