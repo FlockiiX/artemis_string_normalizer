@@ -1,0 +1,21 @@
+<html>
+<body>
+<b>.artemis</b> – Convert Artemis-encoded strings into clean Java expressions.
+
+<br/><br/>
+
+Replaces <code>⎵</code> with spaces, turns <code>&lt;var&gt;</code> placeholders into
+identifiers, removes invalid placeholders, and builds proper string concatenations.
+
+<br/><br/>
+
+<b>Example:</b><br/>
+<pre>
+"(<X>/<Y>)⎵Enter⎵your⎵guess:"
+    .artemis
+→
+"(" + X + "/" + Y + ") Enter your guess:"
+</pre>
+
+</body>
+</html>

@@ -1,29 +1,39 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <id>dev.flocki.artemis_string_normalizer</id>
-
-    <!-- Public plugin name should be written in Title Case.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
     <name>Artemis_string_normalizer</name>
-
-    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
-
-    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <vendor url="https://github.com/FlockiiX">FlockiiX</vendor>
     <description><![CDATA[
-        Enter short description for your plugin here.<br>
-        <em>most HTML tags may be used</em>
-    ]]></description>
+    <h2>Artemis String Normalizer</h2>
 
-    <!-- Product and plugin compatibility requirements.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <p>
+        A postfix template that converts artemis encoded strings into clean,
+        readable Java string expressions.
+
+    <h3>Features</h3>
+    <ul>
+        <li>Replaces the special symbol <code>⎵</code> with a real space</li>
+        <li>Converts variables inside <code>&lt;...&gt;</code> into Java identifiers</li>
+        <li>Automatically concatenates text and variable segments</li>
+        <li>Removes invalid placeholders (e.g. with spaces)</li>
+        <li>Works in all file types via postfix <code>.artemis</code></li>
+    </ul>
+
+    <h3>Example</h3>
+    <pre>
+"(<X>/<Y>)⎵Enter⎵your⎵guess:".artemis
+-->
+"(" + X + "/" + Y + ") Enter your guess:"
+    </pre>
+]]></description>
+
+
     <depends>com.intellij.modules.platform</depends>
 
-    <!-- Extension points defined by the plugin.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.template.postfixTemplateProvider
+                implementationClass="dev.flocki.artemis_string_normalizer.postfix.ArtemisStringNormalizerTemplateProvider"
+                language=""
+        />
 
     </extensions>
 </idea-plugin>
