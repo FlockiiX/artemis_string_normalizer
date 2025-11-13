@@ -5,6 +5,8 @@
     <description><![CDATA[
     <h2>Artemis String Normalizer</h2>
 
+    This plugin is an independent tool and is not affiliated with, endorsed by, or connected to Artemis or TUM.
+
     <p>
         A postfix template that converts artemis encoded strings into clean,
         readable Java string expressions.
