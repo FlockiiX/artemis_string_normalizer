@@ -38,7 +38,10 @@ object ArtemisStringNormalizer {
                         flush()
                         if (out.isNotEmpty()) out.append(" + ")
                         out.append(name)
+                    } else {
+                        lit.append(text.substring(i, end + 1))
                     }
+
                     i = end + 1
                     continue
                 }

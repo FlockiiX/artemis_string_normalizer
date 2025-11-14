@@ -40,3 +40,5 @@ single
 " ■"
 "Let's⎵start!"
 "Let's start!"
+"Weird <Var iable>"
+"Weird <Var iable>"
