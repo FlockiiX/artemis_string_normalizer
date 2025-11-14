@@ -1,0 +1,75 @@
+name: Build & Release IntelliJ Plugin
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build plugin
+        run: ./gradlew buildPlugin
+
+      - name: Find plugin ZIP
+        id: find_zip
+        run: |
+          FILE=$(find build/distributions -name "*.zip" | head -n 1)
+          if [ -z "$FILE" ]; then
+            echo "Error: No ZIP file found in build/distributions"
+            exit 1
+          fi
+          echo "file=$FILE" >> $GITHUB_OUTPUT
+          echo "Found plugin: $FILE"
+
+      - name: Extract version from build.gradle.kts
+        id: version
+        run: |
+          VER=$(grep -E '^version\s*=\s*"' build.gradle.kts | sed 's/[^"]*"//;s/"$//')
+          if [ -z "$VER" ]; then
+            echo "Error: Could not extract version"
+            exit 1
+          fi
+          echo "version=$VER" >> $GITHUB_OUTPUT
+
+      - name: Verify tag matches version
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          if [ "$TAG_VERSION" != "${{ steps.version.outputs.version }}" ]; then
+            echo "Tag version ($TAG_VERSION) does not match Gradle version (${{ steps.version.outputs.version }})"
+            exit 1
+          fi
+
+      - name: Extract changeNotes from build.gradle.kts
+        id: changenotes
+        run: |
+          NOTES=$(sed -n '/changeNotes\s*=\s*"""/,/"""/p' build.gradle.kts | sed '1d;$d' | sed 's/^ *//')
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Version ${{ steps.version.outputs.version }}"
+          body: ${{ steps.changenotes.outputs.notes }}
+          files: ${{ steps.find_zip.outputs.file }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
