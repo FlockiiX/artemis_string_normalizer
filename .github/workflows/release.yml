@@ -1,5 +1,8 @@
 name: Build & Release IntelliJ Plugin
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:
