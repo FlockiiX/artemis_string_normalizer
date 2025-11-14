@@ -30,3 +30,13 @@ single
 "Math " + x + "+" + y + "=" + result
 "Special chars !? <v> *&^%"
 "Special chars !? " + v + " *&^%"
+"Some⎵Test:\t\t\tSome⎵Test:"
+"Some Test:\t\t\tSome Test:"
+"+⎵a⎵b⎵c⎵d⎵e⎵f⎵g⎵h\t\t+⎵a⎵b⎵c⎵d⎵e⎵f⎵g⎵h"
+"+ a b c d e f g h\t\t+ a b c d e f g h"
+"⎵⎵"
+"  "
+"⎵■"
+" ■"
+"Let's⎵start!"
+"Let's start!"

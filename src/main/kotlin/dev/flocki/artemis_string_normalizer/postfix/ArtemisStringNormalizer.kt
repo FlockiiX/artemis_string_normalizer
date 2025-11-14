@@ -7,9 +7,12 @@ object ArtemisStringNormalizer {
     }
 
     fun extractStringContent(s: String): String = when {
-        s.startsWith("\"\"\"") -> s.removeSurrounding("\"\"\"")
-        s.startsWith("\"")     -> s.removeSurrounding("\"")
-        s.startsWith("'")      -> s.removeSurrounding("'")
+        s.startsWith("\"\"\"") && s.endsWith("\"\"\"") ->
+            s.removeSurrounding("\"\"\"")
+        s.startsWith("\"") && s.endsWith("\"") ->
+            s.removeSurrounding("\"")
+        s.startsWith("'") && s.endsWith("'") ->
+            s.removeSurrounding("'")
         else -> s
     }
 
@@ -48,7 +51,43 @@ object ArtemisStringNormalizer {
         return if (out.isEmpty()) "\"\"" else out.toString()
     }
 
-    fun escape(s: String): String =
-        s.replace("\\", "\\\\")
-            .replace("\"", "\\\"")
+    fun escape(s: String): String {
+        val sb = StringBuilder()
+        var i = 0
+
+        while (i < s.length) {
+            val c = s[i]
+
+            if (c == '\\') {
+                if (i + 1 < s.length) {
+                    val next = s[i + 1]
+
+                    if (next in listOf('t', 'n', 'r', '\\', '"', '$')) {
+                        if (next == '"') {
+                            sb.append("\\\\\\\"")
+                        } else {
+                            sb.append("\\").append(next)
+                        }
+                        i += 2
+                        continue
+                    }
+                }
+
+                sb.append("\\\\")
+                i++
+                continue
+            }
+
+            if (c == '"') {
+                sb.append("\\\\\"")
+                i++
+                continue
+            }
+
+            sb.append(c)
+            i++
+        }
+
+        return sb.toString()
+    }
 }
