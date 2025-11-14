@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "dev.flocki"
-version = "1.1.2"
+version = "1.2"
 
 repositories {
     mavenCentral()
@@ -37,7 +37,7 @@ intellijPlatform {
         }
 
         changeNotes = """
-            Add plugin icon
+            Detect escapes
         """.trimIndent()
     }
 }
