@@ -1,12 +1,19 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32.0845 7.94025V4H24.0203V7.9896H16.029V4H7.91553V7.94025H4V36H16.0044V32.0045C16.0058 30.9457 16.4274 29.9308 17.1766 29.1826C17.9258 28.4345 18.9412 28.0143 20 28.0143C21.0588 28.0143 22.0743 28.4345 22.8234 29.1826C23.5726 29.9308 23.9942 30.9457 23.9956 32.0045V36H36V7.94025H32.0845Z"
-          fill="url(#paint0_linear)"/>
-    <defs>
-        <linearGradient id="paint0_linear" x1="2.94192" y1="4.89955" x2="37.7772" y2="39.7345"
-                        gradientUnits="userSpaceOnUse">
-            <stop offset="0.15937" stop-color="#3BEA62"/>
-            <stop offset="0.5404" stop-color="#3C99CC"/>
-            <stop offset="0.93739" stop-color="#6B57FF"/>
-        </linearGradient>
-    </defs>
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H76V76H4V4Z" fill="url(#paint0_linear_4301_30)"/>
+<rect x="23" y="66" width="33" height="3" fill="black"/>
+<rect x="12" y="12" width="2" height="9" fill="black"/>
+<rect x="12" y="12" width="2" height="9" fill="black"/>
+<rect x="16" y="12" width="2" height="9" fill="black"/>
+<rect x="16" y="12" width="2" height="9" fill="black"/>
+<rect x="57" y="12" width="2" height="9" fill="black"/>
+<rect x="61" y="12" width="2" height="9" fill="black"/>
+<rect x="20" y="62" width="3" height="7" fill="black"/>
+<rect x="56" y="62" width="3" height="7" fill="black"/>
+<path d="M36.5718 26.1796C36.1187 25.8638 35.4954 25.9751 35.1796 26.4282L30.0335 33.8118C29.7177 34.2649 29.829 34.8882 30.2821 35.204C30.7352 35.5198 31.3585 35.4085 31.6743 34.9554L36.2486 28.3922L42.8118 32.9665C43.2649 33.2823 43.8882 33.171 44.204 32.7179C44.5198 32.2648 44.4085 31.6415 43.9554 31.3257L36.5718 26.1796ZM41 55L41.9844 54.8242L36.9844 26.8242L36 27L35.0156 27.1758L40.0156 55.1758L41 55Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_4301_30" x1="40" y1="5.5" x2="40" y2="77.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EBA610"/>
+<stop offset="1" stop-color="#B10CFE"/>
+</linearGradient>
+</defs>
 </svg>

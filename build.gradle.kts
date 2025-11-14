@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.flocki"
-version = "1.1.1"
+version = "1.1.2"
 
 repositories {
     mavenCentral()
@@ -33,7 +33,7 @@ intellijPlatform {
         }
 
         changeNotes = """
-            Initial version
+            Add plugin icon
         """.trimIndent()
     }
 }
