@@ -1,0 +1,32 @@
+"Hello <name>"
+"Hello " + name
+'Hello <name>'
+"Hello " + name
+"'Hello <name>'"
+"'Hello " + name + "'"
+"This⎵is⎵a⎵test"
+"This is a test"
+"<x>"
+x
+"{<v>}"
+"{" + v + "}"
+"!<var>"
+"!" + var
+"<single>"
+single
+"hello \"world\" <v>"
+"hello \\\"world\\\" " + v
+"nothing to replace"
+"nothing to replace"
+"quote <q> test"
+"quote " + q + " test"
+"dollar test: <x>$<y>"
+"dollar test: " + x + "$" + y
+"⎵<x>⎵middle⎵<y>⎵"
+" " + x + " middle " + y + " "
+"This⎵is⎵a⎵sentence."
+"This is a sentence."
+"Math <x>+<y>=<result>"
+"Math " + x + "+" + y + "=" + result
+"Special chars !? <v> *&^%"
+"Special chars !? " + v + " *&^%"

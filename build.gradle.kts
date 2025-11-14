@@ -1,3 +1,5 @@
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "2.1.0"
@@ -19,12 +21,14 @@ repositories {
 dependencies {
     intellijPlatform {
         create("IC", "2025.1.4.1")
-        testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
-
+        testFramework(TestFrameworkType.Platform)
         // Add necessary plugin dependencies for compilation here, example:
         // bundledPlugin("com.intellij.java")
     }
+
+    testImplementation("junit:junit:4.13.2")
 }
+
 
 intellijPlatform {
     pluginConfiguration {
