@@ -41,4 +41,10 @@ single
 "Let's⎵start!"
 "Let's start!"
 "Weird <Var iable>"
-"Weird <Var iable>"
+"Weird " + Variable
+"Hello <var->"
+"Hello <var->"
+"Hello <var1>"
+"Hello " + var1
+"Hello <Var 1>"
+"Hello " + Var1

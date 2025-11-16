@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "dev.flocki"
-version = "1.2"
+version = "1.2.1"
 
 repositories {
     mavenCentral()
@@ -37,7 +37,7 @@ intellijPlatform {
         }
 
         changeNotes = """
-            Detect escapes
+            Allow whitespaces in variable names
         """.trimIndent()
     }
 }

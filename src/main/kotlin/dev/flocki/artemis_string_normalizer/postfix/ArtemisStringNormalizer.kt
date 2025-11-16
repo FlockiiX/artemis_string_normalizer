@@ -34,10 +34,11 @@ object ArtemisStringNormalizer {
                 val end = text.indexOf('>', i + 1)
                 if (end > i) {
                     val name = text.substring(i + 1, end)
-                    if (name.isNotBlank() && !name.any(Char::isWhitespace)) {
+                    val sanitized = name.replace(" ", "")
+                    if (sanitized.isNotBlank() && sanitized.all { it.isLetterOrDigit() || it == '_' }) {
                         flush()
                         if (out.isNotEmpty()) out.append(" + ")
-                        out.append(name)
+                        out.append(sanitized)
                     } else {
                         lit.append(text.substring(i, end + 1))
                     }
