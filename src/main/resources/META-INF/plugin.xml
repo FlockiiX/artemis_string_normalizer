@@ -5,29 +5,45 @@
     <description><![CDATA[
     <h2>Artemis String Normalizer</h2>
 
-    This plugin is an independent tool and is not affiliated with, endorsed by, or connected to Artemis or TUM.
+    This plugin is an independent tool and is not affiliated with, endorsed by,
+    or connected to Artemis or TUM.
 
     <p>
-        A postfix template that converts artemis encoded strings into clean,
-        readable Java string expressions.
+        A postfix template tool that converts Artemis-encoded strings into clean,
+        readable Java code.
 
     <h3>Features</h3>
     <ul>
         <li>Replaces the special symbol <code>⎵</code> with a real space</li>
         <li>Converts variables inside <code>&lt;...&gt;</code> into Java identifiers</li>
-        <li>Automatically concatenates text and variable segments</li>
-        <li>Removes invalid placeholders (e.g. with spaces)</li>
-        <li>Works in .java files via postfix <code>.artemis</code></li>
+        <li>Ignores invalid placeholders (e.g. with spaces or symbols)</li>
+        <li>Escapes strings safely for Java source code</li>
+        <li>Works in <code>.java</code> files via postfix templates</li>
+        <li>
+            <code>.artemis</code> – converts into Java string expressions using concatenation
+        </li>
+        <li>
+            <code>.artemisf</code> – converts into a complete
+            <code>System.out.printf</code> statement with matching arguments
+        </li>
     </ul>
 
-    <h3>Example</h3>
+    <h3>Examples</h3>
+
+    <b>String expression:</b>
     <pre>
 "(&lt;X&gt;/&lt;Y&gt;)⎵Enter⎵your⎵guess:".artemis
 -->
 "(" + X + "/" + Y + ") Enter your guess:"
     </pre>
-]]></description>
 
+    <b>Printf output:</b>
+    <pre>
+"(&lt;X&gt;/&lt;Y&gt;)⎵Enter⎵your⎵guess:".artemisf
+-->
+System.out.printf("(%s/%s) Enter your guess:", X, Y);
+    </pre>
+]]></description>
 
     <depends>com.intellij.modules.platform</depends>
 
@@ -36,6 +52,5 @@
                 implementationClass="dev.flocki.artemis_string_normalizer.postfix.ArtemisStringNormalizerTemplateProvider"
                 language="JAVA"
         />
-
     </extensions>
 </idea-plugin>

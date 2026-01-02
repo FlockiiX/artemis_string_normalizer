@@ -1,0 +1,22 @@
+<html>
+<body>
+<b>.artemisf</b> – Convert Artemis-encoded strings into <code>System.out.printf</code> statements.
+
+<br/><br/>
+
+Replaces <code>⎵</code> with spaces, converts <code>&lt;var&gt;</code> placeholders into
+<code>%s</code> format specifiers, collects valid identifiers, and generates a complete
+<code>System.out.printf</code> call with arguments.
+
+<br/><br/>
+
+<b>Example:</b><br/>
+<pre>
+"(&lt;X&gt;/&lt;Y&gt;)⎵Enter⎵your⎵guess:"
+    .artemisf
+→
+System.out.printf("(%s/%s) Enter your guess:", X, Y);
+</pre>
+
+</body>
+</html>

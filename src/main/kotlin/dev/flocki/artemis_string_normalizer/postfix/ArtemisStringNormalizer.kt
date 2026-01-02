@@ -94,4 +94,41 @@ object ArtemisStringNormalizer {
 
         return sb.toString()
     }
+
+    data class PrintfResult(
+        val format: String,
+        val args: List<String>
+    )
+
+    fun buildPrintf(text: String): PrintfResult {
+        val format = StringBuilder()
+        val args = mutableListOf<String>()
+
+        var i = 0
+        while (i < text.length) {
+            if (text[i] == '<') {
+                val end = text.indexOf('>', i + 1)
+                if (end > i) {
+                    val name = text.substring(i + 1, end)
+                        .replace(" ", "")
+
+                    if (name.isNotBlank() &&
+                        name.all { it.isLetterOrDigit() || it == '_' }) {
+                        format.append("%s")
+                        args += name
+                        i = end + 1
+                        continue
+                    }
+                }
+            }
+
+            format.append(text[i])
+            i++
+        }
+
+        return PrintfResult(
+            format = escape(format.toString()),
+            args = args
+        )
+    }
 }

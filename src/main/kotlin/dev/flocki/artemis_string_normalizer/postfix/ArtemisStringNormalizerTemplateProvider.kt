@@ -6,7 +6,10 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiFile
 
 class ArtemisStringNormalizerTemplateProvider : PostfixTemplateProvider {
-    private val templates: Set<PostfixTemplate> = setOf(ArtemisStringNormalizerTemplate(this))
+    private val templates: Set<PostfixTemplate> = setOf(
+        ArtemisStringNormalizerTemplate(this),
+        ArtemisPrintfTemplate(this)
+        )
 
     override fun getTemplates(): Set<PostfixTemplate> = templates
 
